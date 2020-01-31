@@ -1,0 +1,40 @@
+#hero-container {
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    /* height: 100vh */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end];
+    grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end];
+    grid-template-areas: 
+        "links search . weather"
+        "main main main"
+        "settings quote todo";
+
+}
+
+.links {
+    grid-area: links
+}
+.search {
+    grid-area: search;
+}
+.weather {
+    grid-area: weather
+}
+.main {
+    grid-area: main;
+}
+.settings {
+    grid-area: settings
+}
+.quote {
+    grid-area: quote
+}
+.todo {
+    grid-area: todo
+}

@@ -1,0 +1,26 @@
+{
+  "name": "momentum",
+  "version": "1.0.0",
+  "description": "momentum chrome extension clone",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PCeeeZy/momentum.git"
+  },
+  "keywords": [
+    "momentum"
+  ],
+  "author": "Paul A. Cwik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PCeeeZy/momentum/issues"
+  },
+  "homepage": "https://github.com/PCeeeZy/momentum#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
+  }
+}
