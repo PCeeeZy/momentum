@@ -1,3 +1,7 @@
+* {
+    place-self: center;
+}
+
 #hero-container {
     background-color: #cccccc; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
@@ -8,12 +12,16 @@
 
 .container {
     display: grid;
-    grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end];
-    grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end];
+    grid-template-columns: 1fr 1fr 12fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 4fr 1fr 1fr;
+    /* grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end]; */
+    /* grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end]; */
     grid-template-areas: 
-        "links search . weather"
-        "main main main"
-        "settings quote todo";
+        "links search . . weather"
+        ". . . . ."
+        "main main main main main"
+        ". . focus . ."
+        "settings settings quote . todo";
 
 }
 
@@ -22,6 +30,9 @@
 }
 .search {
     grid-area: search;
+}
+.focus {
+    grid-area: focus;
 }
 .weather {
     grid-area: weather

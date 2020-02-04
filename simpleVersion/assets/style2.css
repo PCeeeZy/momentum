@@ -1,4 +1,13 @@
-.item-a {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: 
+      "header header header header"
+      "main main . sidebar"
+      "footer footer footer footer";
+  }
+  .item-a {
     grid-area: header;
     background-color: blue;
     height: 100px;
@@ -17,14 +26,4 @@
     grid-area: footer;
     background-color: yellow;
     /* height: 100px; */
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas: 
-      "header header header header"
-      "main main . sidebar"
-      "footer footer footer footer";
   }
