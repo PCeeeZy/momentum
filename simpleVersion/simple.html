@@ -1,40 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Test Site</title>
     <link rel="stylesheet" href="assets/reset.css">
+
+    <script src="https://kit.fontawesome.com/0bfd601208.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="./assets/grid.css">
     <link rel="stylesheet" href="./assets/style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
 </head>
+
 <body>
     <div class="container" id="hero-container">
-        <div class="links">links</div>
-        <div class="search">search</div>
-        <div class="weather">weather</div>
+        <div class="links vert-middle">Links</div>
+        <!-- <div class="search">
+            <span class="fas fa-search fa-lg"></span>
+            <i class="fas fa-search fa-lg icon"></i>
+            <input type="text" name="search-name" id="search-input">
+        </div> -->
+        <div class="search vert-middle input-icon-wrap">
+            <span class="input-icon"><span class="fas fa-search fa-lg icon  icon-with-input"></span></span>
+            <input type="text" class="input-with-icon" id="search-input">
+        </div>
+        <div class="weather vert-middle">Weather</div>
         <div class="main main-container">
             <div class="item-clock">
-                8:41
+                <!-- MOMENT TIME GOES HERE -->
             </div>
             <div class="item-greeting">Good evening, Paul.</div>
         </div>
         <div class="focus">
             <form class="focus-form">
-                <label for="focus-today">What is your main focus for today?</label>
-                <input type="text" id="focus-input" name="focus-today">
+                <label id="main-focus-text" for="focus-today">What is your main focus for today?</label>
+                <div class="focus-form-item">
+                    <input type="text" id="focus-input" name="focus-today">
+                </div>
             </form>
         </div>
-        <div class="settings">settings</div>
-        <div class="quote">quote</div>
-        <div class="todo">todo</div>
+        <div class="settings vert-middle"><span class="fas fa-cog fa-lg"></span></div>
+        <div class="quote vert-middle">Quote</div>
+        <div class="todo vert-middle">Todo</div>
     </div>
     <!-- <img src="#" alt="background" class="background-jumbo"> -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
+    <script src="./assets/clock.js"></script>
 </body>
+
 </html>

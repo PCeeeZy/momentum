@@ -1,4 +1,4 @@
-* {
+body {
     place-self: center;
 }
 
@@ -19,10 +19,9 @@
     grid-template-areas: 
         "links search . . weather"
         ". . . . ."
-        "main main main main main"
-        ". . focus . ."
-        "settings settings quote . todo";
-
+        ". main main main ."
+        ". focus focus focus ."
+        "settings quote quote quote todo";
 }
 .main-container {
     display: grid;;
@@ -43,7 +42,7 @@
 
 
 .links {
-    grid-area: links
+    grid-area: links;
 }
 .search {
     grid-area: search;
@@ -52,17 +51,52 @@
     grid-area: focus;
 }
 .weather {
-    grid-area: weather
+    grid-area: weather;
 }
 .main {
     grid-area: main;
 }
 .settings {
-    grid-area: settings
+    grid-area: settings;
 }
 .quote {
-    grid-area: quote
+    grid-area: quote;
 }
 .todo {
-    grid-area: todo
+    grid-area: todo;
+}
+@media screen and (max-width: 400px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        "focus focus focus"
+        "weather weather weather"
+        "quote quote quote"
+        ""
+            "links search . . weather" 
+            ". focus focus focus ."
+            "settings quote quote quote todo";
+    }
+
+}
+
+@media screen and (max-height: 400) {
+    .item-clock {
+       display: none;
+       grid-area: none;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: 2fr 2fr 8fr 2fr 2fr;
+        grid-template-rows: 1fr  4fr 1fr;
+        /* grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end]; */
+        /* grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end]; */
+        grid-template-areas: 
+            "links search . . weather" 
+            ". focus focus focus ."
+            "settings quote quote quote todo";
+    }
+
 }
