@@ -11,7 +11,7 @@ $(document).ready(function() {
     $(window).resize(function(event) {
         console.log('window is changed');
 
-        $('#hero-container').height($( window ).height() - 20)
+        $('#hero-container').height($( window ).height())
     })
     
 

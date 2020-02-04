@@ -1,51 +1,32 @@
 * {
-    place-self: center;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-align: center;
+    /* text-shadow: 0 1px 5px rgba(0,0,0,.1); */
 }
 
-#hero-container {
-    background-color: #cccccc; /* Used if the image is unavailable */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    /* height: 100vh */
+.item-clock {
+    font-size: 192px;
+    letter-spacing: -8px;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 12fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr 4fr 1fr 1fr;
-    /* grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end]; */
-    /* grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end]; */
-    grid-template-areas: 
-        "links search . . weather"
-        ". . . . ."
-        "main main main main main"
-        ". . focus . ."
-        "settings settings quote . todo";
-
+.item-greeting {
+    font-size: 48px;
+    /* transition: transform .5s ease,opacity .5s ease; */
+    
 }
 
-.links {
-    grid-area: links
+.focus-form {
+    font-size: 36px;
 }
-.search {
-    grid-area: search;
+#focus-input {
+    width: 70%;
 }
-.focus {
-    grid-area: focus;
-}
-.weather {
-    grid-area: weather
-}
-.main {
-    grid-area: main;
-}
-.settings {
-    grid-area: settings
-}
-.quote {
-    grid-area: quote
-}
-.todo {
-    grid-area: todo
+input {
+    border: none;
+    font-size: 24px;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    height: 36px;
+    outline: 0;
 }
