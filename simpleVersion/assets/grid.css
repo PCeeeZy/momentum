@@ -17,7 +17,7 @@ body {
     /* grid-template-columns: [col1-start] 65px [col1-end col2-start] 235px [col2-end col3-start] auto [col3-end col4-start] 100px [col4-end]; */
     /* grid-template-rows: [head-start] 60px [head-end body-start] auto [body-end foot-start] 60px [foot-end]; */
     grid-template-areas: 
-        "links search . . weather"
+        "links search . weather weather"
         ". . . . ."
         ". main main main ."
         ". focus focus focus ."

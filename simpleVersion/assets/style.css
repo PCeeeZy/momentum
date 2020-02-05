@@ -54,11 +54,30 @@ input {
     flex-direction: row;
 }
 
+.weather-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .input-icon {
 }
 
 .input-with-icon {
     /* border: none; */
+    flex: 1;
+}
+.weather-city {
+    flex: 0;
+}
+.tiny-line-height {
+    line-height: 5px;
+}
+.weather-icon {
+    margin: 15px 0px auto 30px;
+}
+.city-temp {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 }
 
