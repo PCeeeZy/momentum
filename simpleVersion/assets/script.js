@@ -1,10 +1,12 @@
 $(document).ready(function () {
+    // settings stored as variable
+    let storedSettings;
+    let showSettings = false;
     // resize the background image to match window
     $(window).resize(function (event) {
         // console.log('window is changed');
         $('#hero-container').height($(window).height())
     })
-
     const getPixabay = () => {
         const key = "15098624-f10536bb38a206b99977e7cf8";
         $.ajax({
@@ -13,7 +15,8 @@ $(document).ready(function () {
             data: {
                 key,
                 orientation: "horizontal",
-                safesearch: "true"
+                safesearch: "true",
+                editors_choice: "true"
             },
             success: function (data) {
                 // let randomNum = Math.floor(Math.random() * data.hits.length)
@@ -63,7 +66,7 @@ $(document).ready(function () {
                     console.log(data.weather[0].main); // single word weather descriptor
                     console.log(data.main.temp); // temperature xx..xx degrees F
                     console.log(data.name);  // city name
-                    renderWeather(data.name, data.main.temp, data.weather[0].main)
+                    renderWeather(data.name, data.main.temp.toFixed(0), data.weather[0].main)
                 },
                 error: function(err) {
                     // handle err
@@ -82,36 +85,68 @@ $(document).ready(function () {
         let icon  = $('<span>');
         switch (descriptor) {
             case "Clear":
-                icon.attr('class', 'fas fa-sun fa-2x weather-icon vert-middle');
+                icon.attr('class', 'fas fa-sun fa-2x weather-icon vert-middle icon');
                 break;
             case "Rain":
-                icon.attr('class', 'fas fa-cloud-rain fa-2x weather-icon vert-middle');
+                icon.attr('class', 'fas fa-cloud-rain fa-2x weather-icon vert-middle icon');
                 break;
             case "Snow":
-                icon.attr('class', 'fas fa-snowflake fa-2x weather-icon vert-middle');
+                icon.attr('class', 'fas fa-snowflake fa-2x weather-icon vert-middle icon');
                 break;
             case "Extreme":
-                icon.attr('class', 'fas fa-exclamation-triangle weather-icon fa-2x vert-middle')
+                icon.attr('class', 'fas fa-exclamation-triangle weather-icon fa-2x vert-middle icon')
                 break;
             case "Clouds":
-                icon.attr('class', 'fas fa-cloud fa-2x weather-icon vert-middle');
+                icon.attr('class', 'fas fa-cloud fa-2x weather-icon vert-middle icon');
                 break;
         };
         $('.weather').empty();
         let container = $('<div>').attr('class', 'weather-container');
         let cityTemp = $('<div>').attr('class', 'city-temp vert-flex');
-        let $city = $('<div>').text(city).attr('class','weather-city vert-middle');
-        let $temp = $('<div>').html(temperature + "&#176;F").attr('class', 'vert-middle tiny-line-height');
-        cityTemp.append($city, $temp);
+        let $temp = $('<div>').html(temperature + "&#176;").attr('class', 'vert-middle weather-temp');
+        let $city = $('<div>').text(city).attr('class','weather-city vert-middle tiny-line-height');
+        cityTemp.append($temp, $city);
         container.append(icon, cityTemp);
         $('.weather').append(container);
 
     }
+    const setSettings = () => {
+        localStorage.setItem("settings", JSON.stringify(storedSettings))
+    }
+
+    const checkLocal = () => {
+        JSON.parse(localStorage.getItem("settings")) !== null ? storedSettings = JSON.parse(localStorage.getItem("settings")) : storedSettings = {
+            name: "",
+            colorPreference: "",
+            unitPreference: "",
+            recentLocations: [],
+            recentFocus: [],
+            daysToDos:{
+            }
+        }
+        console.log(storedSettings);
+        setSettings();
+        startEverything();
+    };
 
     const startEverything = () => {
         getPixabay();
         getKanye();
         getWeatherPermissions();
     };
-    startEverything();
+
+    const changeSettings = () => {
+        console.log('ive been clicked')
+        if (showSettings) {
+            $('.settings-box').hide()
+            showSettings = false;
+        } else {
+            $('.settings-box').show()
+            showSettings = true;
+        }
+    }
+
+    checkLocal();
+
+    $('.settings').on('click', changeSettings);
 })
